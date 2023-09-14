@@ -4,7 +4,7 @@ const express = require('express');
 const logger = require('morgan');
 const flash = require('connect-flash');
 const moment = require('moment');
-moment.locale('es');
+moment.locale('es'); // 
 
 
 require('./config/db.config');

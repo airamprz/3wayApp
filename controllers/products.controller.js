@@ -1,7 +1,7 @@
 const Product = require('../models/product.model');
 const Message = require('../models/message.model');
 const mongoose = require('mongoose');
-const moment = require('moment/moment'); //
+const moment = require('moment/moment'); 
 
 module.exports.createPage = (req, res, next) => {
     res.render('products/create');
