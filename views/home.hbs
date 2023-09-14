@@ -1,0 +1,52 @@
+<div class="container mt-5">
+  <h1 class="display-4 text-center">Compra y Vende Artículos de Segunda Mano en 3way</h1>
+  <p class="lead text-center mb-4">Únete a nuestra comunidad y encuentra lo que necesitas</p>
+
+  <div class="container">
+    <form class="row g-3 justify-content-center mb-4" role="search" method="GET" action="/search">
+      <div class="col-md-4">
+        <select class="form-select" name="category">
+          <option value="">Todas las categorías</option>
+          <option value="1">Coches</option>
+          <option value="2">Motos</option>
+          <option value="3">Bicicletas</option>
+          <option value="4">Otros</option>
+        </select>
+      </div>
+      <div class="col-md-6">
+        <input class="form-control" type="search" name="query" placeholder="Buscar" aria-label="Buscar">
+      </div>
+      <div class="col-md-2">
+        <button class="btn btn-warning" type="submit">Buscar</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <h3 class="fw-light mb-3 text-center">A mucha gente le gusta</h3>
+      <hr class="mb-4">
+    </div>
+  </div>
+
+  <div class="row">
+    {{#each products }}
+    <div class="col-md-4 mb-5">
+      <div class="card" style="width: 250px; height: 350px;">
+        <a href="/products/{{_id}}">
+          <img src="{{this.image}}" class="card-img-top" alt="{{this.title}}">
+          <div class="card-body">
+            <h5 class="card-title">{{this.title}}</h5>
+            <p class="card-text">{{this.description}}</p>
+          </div>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">Precio: {{this.price}}€</li>
+          </ul>
+        </a>
+      </div>
+    </div>
+    {{/each}}
+  </div>
+</div>

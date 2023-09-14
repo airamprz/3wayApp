@@ -1,0 +1,39 @@
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-8 offset-md-2">
+            <div class="card">
+                <img src="{{product.image}}" class="card-img-top" alt="{{product.title}}">
+                <div class="card-body">
+                    <h1 class="card-title">{{product.title}}</h1>
+                    <h2 class="card-subtitle mb-2 text-muted">{{product.price}}</h2>
+                    <p class="card-text">{{product.description}}</p>
+                    <a class="card-text" href="/profile/{{product.user._id}}">@{{product.user.username}}</a>
+                    <p class="card-text">Fecha de publicación: {{product.createdAt}}</p>
+                </div>
+            </div>
+            <div class="col-12">
+                <form action="/products/{{product._id}}/messages" method="post">
+                    <div class="mb-3">
+                        <label for="title" class="form-label">Título</label>
+                        <input type="text" class="form-control" id="title" name="title">
+                    </div>
+                    <div class="mb-3">
+                        <label for="description" class="form-label">Descripción</label>
+                        <textarea class="form-control" id="description" name="description" rows="3"></textarea>
+                    </div>
+                    <div class="mb-3">
+                        <button class="btn btn-warning" type="submit">Escribir mensaje</button>
+                </form>
+            </div>
+            {{#each messages}}
+            <div class="card mt-3">
+                <div class="card-body">
+                    <img class="rounded-circle" src="{{user.avatarUrl}}" alt="{{user.username}}" width="25" />
+                    <h2 class="card-title">{{this.title}}</h2>
+                    <p class="card-text">{{this.description}}</p>
+                </div>
+            </div>
+            {{/each}}
+        </div>
+    </div>
+</div>

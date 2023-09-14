@@ -1,0 +1,17 @@
+<div class="container mt-5">
+    <h1 class="display-4 mb-4">Resultados de la Búsqueda</h1>
+    <ul class="list-group">
+        {{#each products}}
+            <li class="list-group-item">
+                <div class="row">
+                    <div class="col-md-9">
+                        <h2>{{this.title}}</h2>
+                        <p>{{this.description}}</p>
+                        <p>Precio: {{this.price}}€</p>
+                        <p>User: {{this.user}}</p>
+                    </div>
+                </div>
+            </li>
+        {{/each}}
+    </ul>
+</div>

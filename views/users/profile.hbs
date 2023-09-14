@@ -1,0 +1,40 @@
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-4">
+            <img class="rounded-circle" src="{{user.avatarUrl}}" alt="{{user.username}}" width="100" />
+        </div>
+        <div class="col-md-8">
+            <h1>{{user.name}}</h1>
+            <h2 class="text-warning">Créditos: {{user.credits}}</h2>
+        </div>
+    </div>
+    <div class="row mt-4">
+        <div class="col-md-12">
+            <h3>Productos:</h3>
+            <div class="row">
+                {{#each user.products as |product|}}
+                <div class="col-md-12 mb-4">
+                    <div class="card">
+                        <a href="/products/{{product._id}}">
+                            <div class="card-body d-flex">
+                                <div class="col-md-4">
+                                    <h5 class="card-title">{{product.price}}€</h5>
+                                    <p class="card-text">{{product.title}}</p>
+                                </div>
+                                <div class="col-md-4 text-center">
+                                    <p class="card-text">Publicado: {{product.createdAt}}</p>
+                                </div>
+                                <div class="col-md-4 text-right ms-5">
+                                    <form action="/products/{{product._id}}/delete" method="POST">
+                                        <button class="btn btn-danger" type="submit">Eliminar</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                {{/each}}
+            </div>
+        </div>
+    </div>
+</div>
