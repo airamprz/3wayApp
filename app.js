@@ -3,6 +3,9 @@ require('dotenv').config();
 const express = require('express');
 const logger = require('morgan');
 const flash = require('connect-flash');
+const moment = require('moment');
+moment.locale('es');
+
 
 require('./config/db.config');
 require('./config/hbs.config.js');

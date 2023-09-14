@@ -8,7 +8,7 @@
                     <h2 class="card-subtitle mb-2 text-muted">{{product.price}}</h2>
                     <p class="card-text">{{product.description}}</p>
                     <a class="card-text" href="/profile/{{product.user._id}}">@{{product.user.username}}</a>
-                    <p class="card-text">Fecha de publicación: {{product.createdAt}}</p>
+                    <p class="card-text">Fecha de publicación: {{formattedDate}}</p>
                 </div>
             </div>
             <div class="col-12">

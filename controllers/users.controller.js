@@ -1,5 +1,6 @@
 const User = require('../models/user.model');
 const mongoose = require('mongoose');
+const moment = require('moment/moment');
 
 
 module.exports.register = (req, res, next) => res.render('users/register');
@@ -79,9 +80,11 @@ module.exports.profile = async (req, res, next) => {
             // Manejar el caso en el que el usuario no se encuentra
             return res.status(404).send('Usuario no encontrado');
         }
+
+        const formattedDate = moment(user.createdAt).format('DD/MM/YYYY');
   
         // Renderiza la vista de perfil de usuario con los datos del usuario y followingCount
-        res.render('users/profile', { user: req.user });
+        res.render('users/profile', { user: req.user, formattedDate });
     } catch (error) {
         console.error(error);
         // Manejar errores apropiadamente

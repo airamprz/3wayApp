@@ -1,6 +1,7 @@
 const Product = require('../models/product.model');
 const Message = require('../models/message.model');
 const mongoose = require('mongoose');
+const moment = require('moment/moment');
 
 module.exports.createPage = (req, res, next) => {
     res.render('products/create');
@@ -52,8 +53,10 @@ module.exports.detail = async (req, res, next) => {
             return res.status(404).send('Producto no encontrado');
         }
 
+        const formattedDate = moment(product.createdAt).format('DD/MM/YYYY');
+
         // Renderiza la vista de la página de producto con los datos del producto
-        res.render('products/productPage', { product, messages });
+        res.render('products/productPage', { product, messages, formattedDate });
     } catch (error) {
         console.error(error);
         // Maneja los errores apropiadamente
