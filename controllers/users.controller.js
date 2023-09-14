@@ -1,6 +1,6 @@
 const User = require('../models/user.model');
 const mongoose = require('mongoose');
-const moment = require('moment/moment');
+const moment = require('moment/moment'); // 
 
 
 module.exports.register = (req, res, next) => res.render('users/register');
